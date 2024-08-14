@@ -1,4 +1,4 @@
-#Anu Calculator Code
+#Anu Password Generator Code
 from tkinter import *
 import random
 
