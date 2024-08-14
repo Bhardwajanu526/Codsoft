@@ -1,0 +1,36 @@
+import random
+from tkinter import *
+from tkinter import ttk
+
+
+win = Tk()
+
+win.geometry("300x250")
+win.title('random pass generator')
+
+
+password_length = StringVar()
+enter_length = ttk.Entry(win, textvariable=password_length)
+enter_length.pack()
+
+password = StringVar()
+
+def generate_password(password_length):
+    i = 0
+    characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    while i < int(password_length.get()):
+        password.set(password.get() + random.choice(characters))
+        i = i + 1
+
+generate = ttk.Button(
+    win,
+    text='generate',
+    command=lambda: generate_password(password_length)
+)
+generate.pack()
+
+label = ttk.Label(win,textvariable = password)
+label.config(background='black')
+label.pack()
+
+win.mainloop()
